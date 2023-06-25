@@ -5,6 +5,7 @@ import com.SpringTransactional.Transactional.Entity.Employee;
 import com.SpringTransactional.Transactional.Repository.DepartmentRepo;
 import com.SpringTransactional.Transactional.Repository.EmployeeRepo;
 import com.SpringTransactional.Transactional.Vo.EmployeeRequestVo;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ public class EmployeeService {
     private EmployeeRepo employeeRepo;
     @Autowired
     private DepartmentRepo departmentRepo;
+
+    @Transactional
     public String saveEmployee(EmployeeRequestVo employeeRequestVo) {
         Department department =new Department();
         department.setDeparmentName(employeeRequestVo.getDepartmentName());
